@@ -1,0 +1,238 @@
+<!-- Page Header -->
+<section class="page-header bg-gradient text-white text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">Get in Touch</h1>
+    <p class="lead">
+      We're here to help. Reach out to discuss your IT needs.
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Contact Info -->
+      <div class="col-lg-4">
+        <h2 class="h3 mb-4">Contact Information</h2>
+        <p class="text-muted mb-4">
+          Have a question or ready to start a project? We'd love to hear from you.
+        </p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div>
+              <h5>Email</h5>
+              <a href="mailto:info@ambikainfotech.com">info&#64;ambikainfotech.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div>
+              <h5>Phone</h5>
+              <a href="tel:+1234567890">+1 (234) 567-890</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+            <div>
+              <h5>WhatsApp</h5>
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener">
+                Chat with us
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="icon">
+              <i class="bi bi-clock-fill"></i>
+            </div>
+            <div>
+              <h5>Business Hours</h5>
+              <p class="mb-0">Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <p class="mb-0 text-muted small">24/7 Emergency Support Available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="col-lg-8">
+        <div class="contact-form-wrapper">
+          <h2 class="h3 mb-4">Send Us a Message</h2>
+
+          @if (submitSuccess()) {
+            <div class="alert alert-success" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              Thank you for contacting us! We'll get back to you within 24 hours.
+            </div>
+          }
+
+          @if (submitError()) {
+            <div class="alert alert-danger" role="alert">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              There was an error submitting your message. Please try again or contact us directly.
+            </div>
+          }
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">Full Name *</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  formControlName="name"
+                  [class.is-invalid]="isFieldInvalid('name')"
+                  placeholder="John Doe">
+                @if (isFieldInvalid('name')) {
+                  <div class="invalid-feedback">
+                    Please enter your full name.
+                  </div>
+                }
+              </div>
+
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email Address *</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  formControlName="email"
+                  [class.is-invalid]="isFieldInvalid('email')"
+                  placeholder="john@example.com">
+                @if (isFieldInvalid('email')) {
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                }
+              </div>
+
+              <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  formControlName="phone"
+                  placeholder="+1 (234) 567-890">
+              </div>
+
+              <div class="col-md-6">
+                <label for="company" class="form-label">Company Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="company"
+                  formControlName="company"
+                  placeholder="Your Company">
+              </div>
+
+              <div class="col-12">
+                <label for="service" class="form-label">Service Interested In *</label>
+                <select
+                  class="form-select"
+                  id="service"
+                  formControlName="service"
+                  [class.is-invalid]="isFieldInvalid('service')">
+                  <option value="">Select a service...</option>
+                  <option value="it-support">IT Support & Maintenance</option>
+                  <option value="software-dev">Software Development</option>
+                  <option value="web-mobile">Web & Mobile Development</option>
+                  <option value="network">Network Infrastructure</option>
+                  <option value="cloud">Cloud & Hosting Solutions</option>
+                  <option value="security">Cybersecurity</option>
+                  <option value="consultation">General Consultation</option>
+                  <option value="other">Other</option>
+                </select>
+                @if (isFieldInvalid('service')) {
+                  <div class="invalid-feedback">
+                    Please select a service.
+                  </div>
+                }
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label">Message *</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  formControlName="message"
+                  rows="5"
+                  [class.is-invalid]="isFieldInvalid('message')"
+                  placeholder="Tell us about your project or requirements..."></textarea>
+                @if (isFieldInvalid('message')) {
+                  <div class="invalid-feedback">
+                    Please enter your message (at least 10 characters).
+                  </div>
+                }
+              </div>
+
+              <div class="col-12">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg px-5"
+                  [disabled]="isSubmitting()">
+                  @if (isSubmitting()) {
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    Sending...
+                  } @else {
+                    Send Message
+                    <i class="bi bi-send ms-2"></i>
+                  }
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Additional CTA -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-lg-4">
+        <div class="cta-card">
+          <i class="bi bi-calendar-check display-4 text-primary mb-3"></i>
+          <h4 class="h5 mb-3">Schedule a Call</h4>
+          <p class="text-muted">
+            Book a free 30-minute consultation to discuss your IT needs
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="cta-card">
+          <i class="bi bi-file-earmark-text display-4 text-primary mb-3"></i>
+          <h4 class="h5 mb-3">Request a Quote</h4>
+          <p class="text-muted">
+            Get a detailed proposal tailored to your specific requirements
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="cta-card">
+          <i class="bi bi-question-circle display-4 text-primary mb-3"></i>
+          <h4 class="h5 mb-3">Technical Support</h4>
+          <p class="text-muted">
+            Existing clients can reach our 24/7 support team anytime
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,209 @@
+<!-- Page Header -->
+<section class="page-header bg-gradient text-white text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-3">About Ambika Infotech</h1>
+    <p class="lead">
+      Your trusted technology partner since October 2025
+    </p>
+  </div>
+</section>
+
+<!-- Company Story Section -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="mb-4">Who We Are</h2>
+        <p class="text-muted mb-3">
+          Founded in October 2025 with a vision to make technology accessible and beneficial
+          for businesses of all sizes, Ambika Infotech is rapidly growing as a trusted
+          IT services provider serving clients across multiple industries.
+        </p>
+        <p class="text-muted mb-3">
+          We're dedicated to helping businesses leverage technology
+          to solve problems, improve efficiency, and achieve their goals. Our
+          team brings together expertise across software development, network
+          infrastructure, cloud computing, and cybersecurity.
+        </p>
+        <p class="text-muted mb-0">
+          We believe that technology should empower, not complicate. That's why
+          we focus on delivering solutions that are reliable, scalable, and
+          easy to manage—allowing you to focus on what you do best: running
+          your business.
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="stats-grid">
+          @for (stat of stats; track stat.number) {
+            <div class="stat-card">
+              <div class="stat-icon">
+                <i class="{{ stat.icon }} fs-1 text-primary"></i>
+              </div>
+              <h3 class="stat-number">{{ stat.number }}</h3>
+              <p class="stat-label">{{ stat.label }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="mission-card h-100">
+          <div class="card-icon">
+            <i class="bi bi-bullseye fs-1 text-primary"></i>
+          </div>
+          <h3 class="h4 mb-3">Our Mission</h3>
+          <p class="text-muted mb-0">
+            To empower businesses with innovative, reliable technology solutions
+            that drive growth, efficiency, and success. We are committed to being
+            more than just a service provider—we aim to be a true technology
+            partner invested in your long-term success.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="mission-card h-100">
+          <div class="card-icon">
+            <i class="bi bi-lightbulb fs-1 text-primary"></i>
+          </div>
+          <h3 class="h4 mb-3">Our Vision</h3>
+          <p class="text-muted mb-0">
+            To be the most trusted IT services partner for small and medium
+            businesses, recognized for our technical excellence, customer-first
+            approach, and ability to make complex technology simple and accessible
+            for everyone.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Values Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Core Values</h2>
+      <p>The principles that guide everything we do</p>
+    </div>
+
+    <div class="row g-4">
+      @for (value of values; track value.title) {
+        <div class="col-lg-4 col-md-6">
+          <div class="value-card">
+            <div class="value-icon">
+              <i class="{{ value.icon }} fs-2 text-primary"></i>
+            </div>
+            <h4 class="h5 mb-3">{{ value.title }}</h4>
+            <p class="text-muted mb-0">{{ value.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why Partner With Us?</h2>
+      <p>What sets us apart from other IT service providers</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <ul class="benefits-list">
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">Experienced Team</h5>
+              <p class="text-muted mb-0">
+                Our team includes certified professionals with years of real-world experience
+              </p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">Proactive Approach</h5>
+              <p class="text-muted mb-0">
+                We identify and solve problems before they impact your business
+              </p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">Clear Communication</h5>
+              <p class="text-muted mb-0">
+                We explain technical concepts in simple, business-friendly language
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-lg-6">
+        <ul class="benefits-list">
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">Transparent Pricing</h5>
+              <p class="text-muted mb-0">
+                No hidden fees—you'll always know exactly what you're paying for
+              </p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">Long-term Partnership</h5>
+              <p class="text-muted mb-0">
+                We build lasting relationships and grow alongside your business
+              </p>
+            </div>
+          </li>
+          <li>
+            <i class="bi bi-check-circle-fill text-primary"></i>
+            <div>
+              <h5 class="mb-1">24/7 Support</h5>
+              <p class="text-muted mb-0">
+                Round-the-clock assistance when you need it most
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="cta-box bg-gradient text-white p-5 rounded">
+          <h2 class="mb-4">Ready to Work Together?</h2>
+          <p class="lead mb-4">
+            Let's discuss how we can help your business leverage technology
+            for growth and success.
+          </p>
+          <a routerLink="/contact" class="btn btn-light btn-lg px-5">
+            Get in Touch
+            <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

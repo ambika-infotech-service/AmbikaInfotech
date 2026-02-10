@@ -1,0 +1,143 @@
+.page-header {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p, .lead {
+    color: white !important;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .stat-icon {
+    margin-bottom: 1rem;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    color: #6c757d;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.mission-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .card-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.value-card {
+  text-align: center;
+  padding: 2rem 1rem;
+
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(13, 110, 253, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+  }
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    i {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    h5 {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+  }
+}
+
+.cta-box {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p, .lead {
+    color: white !important;
+  }
+
+  .btn-light {
+    color: #0d6efd !important;
+    background-color: white !important;
+
+    i {
+      color: #0d6efd !important;
+    }
+
+    &:hover {
+      color: #0b5ed7 !important;
+      background-color: #f8f9fa !important;
+
+      i {
+        color: #0b5ed7 !important;
+      }
+    }
+  }
+}

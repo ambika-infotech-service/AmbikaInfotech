@@ -1,0 +1,140 @@
+.hero-section {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p, .lead {
+    color: white !important;
+  }
+
+  .btn-light {
+    color: #0d6efd !important;
+    background-color: white !important;
+
+    i {
+      color: #0d6efd !important;
+    }
+
+    &:hover {
+      color: #0b5ed7 !important;
+      background-color: #f8f9fa !important;
+
+      i {
+        color: #0b5ed7 !important;
+      }
+    }
+  }
+
+  .btn-outline-light {
+    color: white !important;
+    border-color: white !important;
+
+    i {
+      color: white !important;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+}
+
+.min-vh-75 {
+  min-height: 75vh;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-illustration {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 5rem;
+  opacity: 0.15;
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(13, 110, 253, 0.1);
+  border-radius: 0.5rem;
+}
+
+.benefit-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(13, 110, 253, 0.1);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.tech-card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: #0d6efd;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.cta-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p {
+    color: white !important;
+  }
+
+  .btn-light {
+    color: #0d6efd !important;
+    background-color: white !important;
+
+    i {
+      color: #0d6efd !important;
+    }
+
+    &:hover {
+      color: #0b5ed7 !important;
+      background-color: #f8f9fa !important;
+
+      i {
+        color: #0b5ed7 !important;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+}

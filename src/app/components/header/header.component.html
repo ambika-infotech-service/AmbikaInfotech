@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">
+      <i class="bi bi-laptop me-2"></i>
+      Ambika Infotech
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="isMobileMenuOpen()">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            (click)="closeMobileMenu()">
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/services"
+            routerLinkActive="active"
+            (click)="closeMobileMenu()">
+            Services
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/about"
+            routerLinkActive="active"
+            (click)="closeMobileMenu()">
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link btn btn-primary text-white ms-lg-3 px-4"
+            routerLink="/contact"
+            routerLinkActive="active"
+            (click)="closeMobileMenu()">
+            Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,99 @@
+.page-header {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p, .lead {
+    color: white !important;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+  }
+}
+
+.service-item {
+  .service-icon-large {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(52, 152, 219, 0.1));
+    border-radius: 1rem;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 250px;
+  }
+
+  &.reverse {
+    .row {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.5rem 0;
+    color: #6c757d;
+
+    i {
+      font-size: 1.25rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.process-card {
+  padding: 2rem 1rem;
+
+  .process-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #0d6efd, #3498db);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 1.5rem;
+  }
+}
+
+.cta-box {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0d6efd, #3498db) !important;
+  color: white;
+
+  h1, h2, h3, h4, h5, h6, p, .lead {
+    color: white !important;
+  }
+
+  .btn-light {
+    color: #0d6efd !important;
+    background-color: white !important;
+
+    i {
+      color: #0d6efd !important;
+    }
+
+    &:hover {
+      color: #0b5ed7 !important;
+      background-color: #f8f9fa !important;
+
+      i {
+        color: #0b5ed7 !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .service-item.reverse .row {
+    flex-direction: column;
+  }
+}
