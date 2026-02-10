@@ -10,4 +10,4 @@ import { FooterComponent } from './components/footer/footer.component';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {}
+export class App { }

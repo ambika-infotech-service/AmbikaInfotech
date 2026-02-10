@@ -16,7 +16,14 @@
     animation: pulse 8s ease-in-out infinite;
   }
 
-  h1, h2, h3, h4, h5, h6, p, .lead {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  .lead {
     color: white !important;
     position: relative;
     z-index: 1;
@@ -145,7 +152,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -266,7 +274,14 @@
     animation: pulse 8s ease-in-out infinite;
   }
 
-  h1, h2, h3, h4, h5, h6, p, .lead {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  .lead {
     color: white !important;
     position: relative;
     z-index: 1;
