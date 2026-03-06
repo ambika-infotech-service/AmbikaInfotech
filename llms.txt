@@ -1,0 +1,59 @@
+# llms.txt — Ambika Infotech
+# GEO: structured context file for AI language models (analogous to robots.txt)
+# Reference: https://llmstxt.org/
+
+> Ambika Infotech is a professional IT services company founded in October 2025, based in India.
+> We provide comprehensive IT solutions to businesses committed to excellence, reliability, and 100% client satisfaction.
+
+## Full content
+
+- [Full content for LLMs](https://ambikainfotech.online/llms-full.txt): Complete page-by-page content, service details, company values, and extended FAQ — optimised for AI language models.
+
+## About
+
+Ambika Infotech delivers reliable, scalable technology solutions that empower businesses to grow.
+Our team of certified professionals offers end-to-end IT services — from day-to-day support to
+full-scale software development and cloud transformation.
+
+## Services
+
+- **IT Support & Maintenance** — 24/7 help desk, remote & on-site assistance, proactive monitoring, hardware & software troubleshooting, IT asset management.
+- **Custom Software Development** — Enterprise solutions, API development & integration, legacy system modernisation, database design, quality assurance & testing.
+- **Web & Mobile Development** — Responsive websites, e-commerce, iOS & Android apps, Progressive Web Apps (PWA), UI/UX design.
+- **Network Infrastructure** — LAN/WAN design, wireless networks, VPN & remote access, network security, monitoring & management.
+- **Cloud & Hosting Solutions** — AWS, Azure & Google Cloud migration, web hosting, backup & disaster recovery, cloud cost optimisation.
+- **Cybersecurity Services** — Security audits, firewall & antivirus, data encryption, security awareness training, GDPR & HIPAA compliance.
+
+## Key Facts
+
+- Founded: October 2025
+- Location: India
+- Client Satisfaction: 100%
+- Website: https://ambikainfotech.online/
+
+## Pages
+
+- [Home](https://ambikainfotech.online/)
+- [Services](https://ambikainfotech.online/services)
+- [About Us](https://ambikainfotech.online/about)
+- [Contact](https://ambikainfotech.online/contact)
+
+## Frequently Asked Questions
+
+**What services does Ambika Infotech offer?**
+Ambika Infotech offers IT support & maintenance, custom software development, web & mobile development, cloud & hosting solutions, network infrastructure design, and cybersecurity services.
+
+**When was Ambika Infotech founded?**
+Ambika Infotech was founded in October 2025.
+
+**Does Ambika Infotech provide 24/7 IT support?**
+Yes, Ambika Infotech provides 24/7 IT help desk support with both remote and on-site assistance.
+
+**Does Ambika Infotech support AWS, Azure, and Google Cloud?**
+Yes, Ambika Infotech offers cloud migration and infrastructure services for AWS, Azure, and Google Cloud.
+
+**How can I contact Ambika Infotech?**
+Visit https://ambikainfotech.online/contact and fill out the online contact form.
+
+**Can Ambika Infotech build a custom software application for my business?**
+Yes, Ambika Infotech specialises in custom software development tailored to unique business requirements.
