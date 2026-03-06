@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 interface Service {
   icon: string;
@@ -15,7 +16,33 @@ interface Service {
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnInit {
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Our Services - Ambika Infotech | IT Solutions',
+      description: 'Explore our full range of IT services: custom software development, web & mobile development, cloud solutions, cybersecurity, network infrastructure, and 24/7 IT support.',
+      keywords: 'IT support, custom software development, web development, mobile app development, cloud solutions, cybersecurity, network infrastructure, Ambika Infotech',
+      canonicalUrl: 'https://ambikainfotech.online/services',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        name: 'IT Services by Ambika Infotech',
+        description: 'Comprehensive IT services for businesses',
+        numberOfItems: 6,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'IT Support & Maintenance' },
+          { '@type': 'ListItem', position: 2, name: 'Custom Software Development' },
+          { '@type': 'ListItem', position: 3, name: 'Web & Mobile Development' },
+          { '@type': 'ListItem', position: 4, name: 'Network Infrastructure' },
+          { '@type': 'ListItem', position: 5, name: 'Cloud & Hosting Solutions' },
+          { '@type': 'ListItem', position: 6, name: 'Cybersecurity Services' }
+        ]
+      }
+    });
+  }
+
   services: Service[] = [
     {
       icon: 'bi bi-headset',

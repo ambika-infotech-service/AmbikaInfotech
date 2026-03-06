@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about',
@@ -8,7 +9,27 @@ import { RouterLink } from '@angular/router';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'About Us - Ambika Infotech | Our Mission & Values',
+      description: 'Learn about Ambika Infotech — our mission, core values, and the expert team behind our IT solutions. Established October 2025, committed to 100% client satisfaction.',
+      keywords: 'about Ambika Infotech, IT company India, our mission, our values, expert IT team',
+      canonicalUrl: 'https://ambikainfotech.online/about',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Ambika Infotech',
+        url: 'https://ambikainfotech.online/',
+        foundingDate: '2025-10',
+        description: 'Professional IT services and solutions provider committed to excellence, reliability, and innovation.',
+        sameAs: []
+      }
+    });
+  }
+
   stats = [
     {
       icon: 'bi bi-calendar-check',

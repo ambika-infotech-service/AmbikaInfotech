@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,30 @@ import { RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Ambika Infotech - Professional IT Services & Solutions',
+      description: 'Ambika Infotech provides comprehensive IT solutions including custom software development, web & app development, cloud services, network infrastructure, and 24/7 IT support for businesses.',
+      keywords: 'IT services, software development, web development, mobile apps, cloud solutions, IT support, Ambika Infotech',
+      canonicalUrl: 'https://ambikainfotech.online/',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Ambika Infotech',
+        url: 'https://ambikainfotech.online/',
+        description: 'Professional IT Services & Solutions',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://ambikainfotech.online/?q={search_term_string}',
+          'query-input': 'required name=search_term_string'
+        }
+      }
+    });
+  }
+
   services = [
     {
       icon: 'bi bi-headset',

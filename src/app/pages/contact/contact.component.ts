@@ -1,5 +1,6 @@
-import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +9,25 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  private readonly seo = inject(SeoService);
+
+  ngOnInit(): void {
+    this.seo.update({
+      title: 'Contact Us - Ambika Infotech | Get in Touch',
+      description: 'Get in touch with Ambika Infotech for professional IT services. Contact us for custom software development, IT support, cloud solutions, cybersecurity, and more.',
+      keywords: 'contact Ambika Infotech, IT support contact, hire IT company, get IT quote',
+      canonicalUrl: 'https://ambikainfotech.online/contact',
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'ContactPage',
+        name: 'Contact Ambika Infotech',
+        url: 'https://ambikainfotech.online/contact',
+        description: 'Contact Ambika Infotech for professional IT services and solutions.'
+      }
+    });
+  }
+
   private fb = inject(FormBuilder);
 
   contactForm: FormGroup = this.fb.group({

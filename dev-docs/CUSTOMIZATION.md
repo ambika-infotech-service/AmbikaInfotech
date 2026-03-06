@@ -399,8 +399,8 @@ Add in `src/index.html` before closing `</head>`:
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Ambika Infotech",
-  "url": "https://ambikainfotech.com",
-  "logo": "https://ambikainfotech.com/assets/logo.png",
+  "url": "https://ambikainfotech.online",
+  "logo": "https://ambikainfotech.online/assets/logo.png",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-234-567-890",
@@ -427,12 +427,12 @@ npm install --save-dev angular-cli-ghpages
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ambikainfotech.com/</loc>
+    <loc>https://ambikainfotech.online/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ambikainfotech.com/services</loc>
+    <loc>https://ambikainfotech.online/services</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
