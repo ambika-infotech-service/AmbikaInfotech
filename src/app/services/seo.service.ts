@@ -2,13 +2,28 @@ import { inject, Injectable } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
 
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 export interface SeoConfig {
   title: string;
   description: string;
   keywords?: string;
   canonicalUrl: string;
   ogImage?: string;
-  jsonLd?: Record<string, unknown>;
+  /** Single schema object or an array of schema objects (combined into @graph) */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** AEO: generates FAQPage schema — answers common questions for AI & voice search */
+  faqItems?: FaqItem[];
+  /** GEO/AEO: generates BreadcrumbList schema — helps AI understand site hierarchy */
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 @Injectable({ providedIn: 'root' })
@@ -42,7 +57,50 @@ export class SeoService {
 
     this.setCanonical(config.canonicalUrl);
 
-    this.setPageJsonLd(config.jsonLd ?? null);
+    this.setPageJsonLd(this.buildJsonLdGraph(config));
+  }
+
+  private buildJsonLdGraph(config: SeoConfig): Record<string, unknown> | null {
+    const items: Record<string, unknown>[] = [];
+
+    if (config.jsonLd) {
+      if (Array.isArray(config.jsonLd)) {
+        items.push(...config.jsonLd);
+      } else {
+        items.push(config.jsonLd);
+      }
+    }
+
+    if (config.breadcrumbs?.length) {
+      items.push({
+        '@type': 'BreadcrumbList',
+        itemListElement: config.breadcrumbs.map((crumb, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: crumb.name,
+          item: crumb.url,
+        })),
+      });
+    }
+
+    if (config.faqItems?.length) {
+      items.push({
+        '@type': 'FAQPage',
+        mainEntity: config.faqItems.map(faq => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      });
+    }
+
+    if (items.length === 0) return null;
+    if (items.length === 1) return { '@context': 'https://schema.org', ...items[0] };
+
+    return { '@context': 'https://schema.org', '@graph': items };
   }
 
   private setCanonical(url: string): void {

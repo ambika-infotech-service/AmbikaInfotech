@@ -17,6 +17,9 @@
     />
     <meta name="author" content="Ambika Infotech" />
     <meta name="robots" content="index, follow" />
+    <!-- GEO: explicitly permit AI search crawlers to index this site -->
+    <meta name="googlebot" content="index, follow" />
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -62,6 +65,7 @@
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
+        "@id": "https://ambikainfotech.online/#organization",
         "name": "Ambika Infotech",
         "url": "https://ambikainfotech.online/",
         "logo": "https://ambikainfotech.online/assets/logo.png",
@@ -75,6 +79,30 @@
           "@type": "ContactPoint",
           "contactType": "customer service",
           "url": "https://ambikainfotech.online/contact"
+        },
+        "knowsAbout": [
+          "IT Support and Maintenance",
+          "Custom Software Development",
+          "Web and Mobile Application Development",
+          "Cloud Computing and Hosting",
+          "Network Infrastructure Design",
+          "Cybersecurity"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "IT Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Support & Maintenance" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Software Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web & Mobile Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & Hosting Solutions" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Network Infrastructure" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersecurity Services" } }
+          ]
+        },
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": ["h1", "h2", ".hero-description"]
         },
         "sameAs": []
       }

@@ -15,16 +15,35 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
     this.seo.update({
       title: 'Contact Us - Ambika Infotech | Get in Touch',
-      description: 'Get in touch with Ambika Infotech for professional IT services. Contact us for custom software development, IT support, cloud solutions, cybersecurity, and more.',
+      description:
+        'Get in touch with Ambika Infotech for professional IT services. Contact us for custom software development, IT support, cloud solutions, cybersecurity, and more.',
       keywords: 'contact Ambika Infotech, IT support contact, hire IT company, get IT quote',
       canonicalUrl: 'https://ambikainfotech.online/contact',
       jsonLd: {
-        '@context': 'https://schema.org',
         '@type': 'ContactPage',
-        name: 'Contact Ambika Infotech',
         url: 'https://ambikainfotech.online/contact',
-        description: 'Contact Ambika Infotech for professional IT services and solutions.'
-      }
+        name: 'Contact Ambika Infotech',
+        description: 'Contact Ambika Infotech for professional IT services and solutions.',
+        inLanguage: 'en',
+        isPartOf: { '@id': 'https://ambikainfotech.online/#website' },
+      },
+      // AEO: direct answers for AI assistants handling contact/support queries
+      faqItems: [
+        {
+          question: 'How do I get a quote from Ambika Infotech?',
+          answer:
+            'You can request a quote from Ambika Infotech by filling out the contact form at ambikainfotech.online/contact with your project details and we will get back to you.',
+        },
+        {
+          question: 'How do I contact Ambika Infotech for IT support?',
+          answer:
+            'You can contact Ambika Infotech for IT support by visiting ambikainfotech.online/contact and submitting a support request through the online contact form.',
+        },
+      ],
+      breadcrumbs: [
+        { name: 'Home', url: 'https://ambikainfotech.online/' },
+        { name: 'Contact', url: 'https://ambikainfotech.online/contact' },
+      ],
     });
   }
 

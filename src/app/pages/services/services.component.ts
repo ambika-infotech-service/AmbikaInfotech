@@ -22,24 +22,65 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
     this.seo.update({
       title: 'Our Services - Ambika Infotech | IT Solutions',
-      description: 'Explore our full range of IT services: custom software development, web & mobile development, cloud solutions, cybersecurity, network infrastructure, and 24/7 IT support.',
-      keywords: 'IT support, custom software development, web development, mobile app development, cloud solutions, cybersecurity, network infrastructure, Ambika Infotech',
+      description:
+        'Explore our full range of IT services: custom software development, web & mobile development, cloud solutions, cybersecurity, network infrastructure, and 24/7 IT support.',
+      keywords:
+        'IT support, custom software development, web development, mobile app development, cloud solutions, cybersecurity, network infrastructure, Ambika Infotech',
       canonicalUrl: 'https://ambikainfotech.online/services',
-      jsonLd: {
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        name: 'IT Services by Ambika Infotech',
-        description: 'Comprehensive IT services for businesses',
-        numberOfItems: 6,
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'IT Support & Maintenance' },
-          { '@type': 'ListItem', position: 2, name: 'Custom Software Development' },
-          { '@type': 'ListItem', position: 3, name: 'Web & Mobile Development' },
-          { '@type': 'ListItem', position: 4, name: 'Network Infrastructure' },
-          { '@type': 'ListItem', position: 5, name: 'Cloud & Hosting Solutions' },
-          { '@type': 'ListItem', position: 6, name: 'Cybersecurity Services' }
-        ]
-      }
+      jsonLd: [
+        {
+          '@type': 'WebPage',
+          url: 'https://ambikainfotech.online/services',
+          name: 'IT Services - Ambika Infotech',
+          inLanguage: 'en',
+          isPartOf: { '@id': 'https://ambikainfotech.online/#website' },
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['h1', 'h2', '.service-title', '.service-description'],
+          },
+        },
+        {
+          '@type': 'ItemList',
+          name: 'IT Services by Ambika Infotech',
+          description: 'Comprehensive IT services for businesses',
+          numberOfItems: 6,
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'IT Support & Maintenance' },
+            { '@type': 'ListItem', position: 2, name: 'Custom Software Development' },
+            { '@type': 'ListItem', position: 3, name: 'Web & Mobile Development' },
+            { '@type': 'ListItem', position: 4, name: 'Network Infrastructure' },
+            { '@type': 'ListItem', position: 5, name: 'Cloud & Hosting Solutions' },
+            { '@type': 'ListItem', position: 6, name: 'Cybersecurity Services' },
+          ],
+        },
+      ],
+      // AEO: service-specific questions AI assistants and voice engines commonly answer
+      faqItems: [
+        {
+          question: 'Does Ambika Infotech provide 24/7 IT support?',
+          answer:
+            'Yes, Ambika Infotech provides 24/7 IT help desk support with remote and on-site assistance, proactive monitoring, and regular maintenance to prevent downtime.',
+        },
+        {
+          question: 'Can Ambika Infotech build a custom software application for my business?',
+          answer:
+            'Yes, Ambika Infotech specialises in custom software development including enterprise solutions, API development & integration, legacy system modernisation, and quality assurance.',
+        },
+        {
+          question: 'Does Ambika Infotech support AWS, Azure, and Google Cloud?',
+          answer:
+            'Yes, Ambika Infotech offers cloud migration and infrastructure services for AWS, Azure, and Google Cloud, including backup, disaster recovery, and cost optimisation.',
+        },
+        {
+          question: 'What cybersecurity services does Ambika Infotech provide?',
+          answer:
+            'Ambika Infotech provides security audits, firewall & antivirus solutions, data encryption, security awareness training, incident response planning, and compliance management including GDPR and HIPAA.',
+        },
+      ],
+      breadcrumbs: [
+        { name: 'Home', url: 'https://ambikainfotech.online/' },
+        { name: 'Services', url: 'https://ambikainfotech.online/services' },
+      ],
     });
   }
 

@@ -2,5 +2,36 @@
 User-agent: *
 Allow: /
 
+# GEO: explicitly allow major AI/LLM crawlers so the site appears in AI-generated answers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI Overview (SGE) / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Microsoft Copilot / Bing AI
+User-agent: bingbot
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
 # Sitemap location
 Sitemap: https://ambikainfotech.online/sitemap.xml

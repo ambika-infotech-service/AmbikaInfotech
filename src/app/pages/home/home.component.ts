@@ -18,18 +18,63 @@ export class HomeComponent implements OnInit {
       description: 'Ambika Infotech provides comprehensive IT solutions including custom software development, web & app development, cloud services, network infrastructure, and 24/7 IT support for businesses.',
       keywords: 'IT services, software development, web development, mobile apps, cloud solutions, IT support, Ambika Infotech',
       canonicalUrl: 'https://ambikainfotech.online/',
-      jsonLd: {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Ambika Infotech',
-        url: 'https://ambikainfotech.online/',
-        description: 'Professional IT Services & Solutions',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://ambikainfotech.online/?q={search_term_string}',
-          'query-input': 'required name=search_term_string'
-        }
-      }
+      // GEO: multi-schema @graph — WebSite + WebPage with SpeakableSpecification
+      jsonLd: [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://ambikainfotech.online/#website',
+          name: 'Ambika Infotech',
+          url: 'https://ambikainfotech.online/',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://ambikainfotech.online/?q={search_term_string}',
+            'query-input': 'required name=search_term_string',
+          },
+        },
+        {
+          '@type': 'WebPage',
+          '@id': 'https://ambikainfotech.online/#webpage',
+          url: 'https://ambikainfotech.online/',
+          name: 'Ambika Infotech - Professional IT Services & Solutions',
+          description:
+            'Ambika Infotech provides comprehensive IT solutions including custom software development, web & app development, cloud services, network infrastructure, and 24/7 IT support.',
+          inLanguage: 'en',
+          isPartOf: { '@id': 'https://ambikainfotech.online/#website' },
+          // GEO: tells AI assistants & voice engines which elements carry key answers
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['h1', 'h2', '.hero-description', '.section-subtitle'],
+          },
+          about: {
+            '@type': 'Organization',
+            name: 'Ambika Infotech',
+            url: 'https://ambikainfotech.online/',
+          },
+        },
+      ],
+      // AEO: common questions answered for featured snippets, voice & AI overviews
+      faqItems: [
+        {
+          question: 'What services does Ambika Infotech offer?',
+          answer:
+            'Ambika Infotech offers IT support & maintenance, custom software development, web & mobile development, cloud & hosting solutions, network infrastructure design, and cybersecurity services.',
+        },
+        {
+          question: 'When was Ambika Infotech founded?',
+          answer: 'Ambika Infotech was founded in October 2025.',
+        },
+        {
+          question: 'Does Ambika Infotech provide 24/7 IT support?',
+          answer:
+            'Yes, Ambika Infotech provides 24/7 IT help desk support with both remote and on-site assistance to keep your systems running at all times.',
+        },
+        {
+          question: 'How can I contact Ambika Infotech?',
+          answer:
+            'You can contact Ambika Infotech by visiting ambikainfotech.online/contact and filling out the online contact form.',
+        },
+      ],
+      breadcrumbs: [{ name: 'Home', url: 'https://ambikainfotech.online/' }],
     });
   }
 
