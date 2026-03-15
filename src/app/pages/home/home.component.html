@@ -1,34 +1,44 @@
-<!-- Hero Section -->
-<section class="hero-section bg-gradient text-white">
-  <div class="container">
+<section class="hero-section text-white" data-reveal-id="hero" [class.is-visible]="isVisible('hero')">
+  <div class="hero-noise"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-beam beam-a" aria-hidden="true"></div>
+  <div class="hero-beam beam-b" aria-hidden="true"></div>
+  <div class="hero-orb orb-a"></div>
+  <div class="hero-orb orb-b"></div>
+  <div class="hero-orb orb-c"></div>
+
+  <div class="hero-sparkle s1" aria-hidden="true"></div>
+  <div class="hero-sparkle s2" aria-hidden="true"></div>
+  <div class="hero-sparkle s3" aria-hidden="true"></div>
+  <div class="hero-sparkle s4" aria-hidden="true"></div>
+  <div class="hero-sparkle s5" aria-hidden="true"></div>
+
+  <div class="container hero-content-wrap">
     <div class="row align-items-center min-vh-75">
       <div class="col-lg-6">
-        <h1 class="display-4 fw-bold mb-4 animate-fade-in">
-          Transform Your Business with Expert IT Solutions
-        </h1>
-        <p class="lead mb-4">
+        <p class="eyebrow hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Future-ready IT partner
+        </p>
+        <h1 class="display-4 fw-bold mb-4 hero-title">Transform Your Business with Expert IT Solutions</h1>
+        <p class="lead mb-4 hero-description">
           Ambika Infotech delivers reliable, innovative technology services that empower your
           business to succeed in the digital world.
         </p>
-        <div class="d-flex gap-3 flex-wrap">
+        <div class="d-flex gap-3 flex-wrap hero-actions">
           <a routerLink="/contact" class="btn btn-light btn-lg px-4">
             Get Started
             <i class="bi bi-arrow-right ms-2"></i>
           </a>
-          <a routerLink="/services" class="btn btn-outline-light btn-lg px-4"> Our Services </a>
+          <a routerLink="/services" class="btn btn-outline-light btn-lg px-4">Our Services</a>
         </div>
 
-        <!-- Trust Indicators -->
-        <div class="row mt-5 g-4">
-          <div class="col-4">
+        <div class="row mt-5 g-4 hero-trust">
+          <div class="col-4 stat-card" style="--delay: 0">
             <h3 class="fw-bold mb-0">2025</h3>
             <p class="mb-0 opacity-75">Established</p>
           </div>
-          <!-- <div class="col-4">
-            <h3 class="fw-bold mb-0">50+</h3>
-            <p class="mb-0 opacity-75">Projects Delivered</p>
-          </div> -->
-          <div class="col-4">
+          <div class="col-4 stat-card" style="--delay: 1">
             <h3 class="fw-bold mb-0">100%</h3>
             <p class="mb-0 opacity-75">Client Satisfaction</p>
           </div>
@@ -36,18 +46,19 @@
       </div>
 
       <div class="col-lg-6 d-none d-lg-block">
-        <div class="hero-illustration">
-          <i class="bi bi-laptop display-1"></i>
-          <i class="bi bi-cloud-check display-1"></i>
-          <i class="bi bi-shield-check display-1"></i>
+        <div class="hero-illustration" aria-hidden="true">
+          <div class="hero-halo hero-halo-outer"></div>
+          <div class="hero-halo hero-halo-inner"></div>
+          <div class="icon-float icon-float-a"><i class="bi bi-laptop"></i></div>
+          <div class="icon-float icon-float-b"><i class="bi bi-cloud-check"></i></div>
+          <div class="icon-float icon-float-c"><i class="bi bi-shield-check"></i></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Services Overview Section -->
-<section class="section">
+<section class="section reveal-section" data-reveal-id="services" [class.is-visible]="isVisible('services')">
   <div class="container">
     <div class="section-title">
       <h2>Our Core Services</h2>
@@ -55,16 +66,16 @@
     </div>
 
     <div class="row g-4">
-      @for (service of services; track service.title) {
-        <div class="col-lg-4 col-md-6">
-          <div class="card h-100 border-0 shadow-sm">
+      @for (service of services; track service.title; let i = $index) {
+        <div class="col-lg-4 col-md-6" [style.--stagger]="i">
+          <div class="card service-card h-100 border-0 shadow-sm">
             <div class="card-body p-4">
               <div class="service-icon mb-3">
-                <i class="{{ service.icon }} fs-1 text-primary"></i>
+                <i [class]="service.icon + ' fs-1 text-primary'"></i>
               </div>
               <h3 class="h5 mb-3">{{ service.title }}</h3>
               <p class="text-muted mb-3">{{ service.description }}</p>
-              <a routerLink="/services" class="text-primary fw-semibold text-decoration-none">
+              <a routerLink="/services" class="text-primary fw-semibold text-decoration-none service-link">
                 Learn More
                 <i class="bi bi-arrow-right ms-1"></i>
               </a>
@@ -76,8 +87,7 @@
   </div>
 </section>
 
-<!-- Why Choose Us Section -->
-<section class="section bg-light">
+<section class="section bg-light reveal-section" data-reveal-id="benefits" [class.is-visible]="isVisible('benefits')">
   <div class="container">
     <div class="section-title">
       <h2>Why Choose Ambika Infotech?</h2>
@@ -85,11 +95,11 @@
     </div>
 
     <div class="row g-4">
-      @for (benefit of benefits; track benefit.title) {
-        <div class="col-lg-3 col-md-6">
-          <div class="text-center">
+      @for (benefit of benefits; track benefit.title; let i = $index) {
+        <div class="col-lg-3 col-md-6" [style.--stagger]="i">
+          <div class="text-center benefit-card">
             <div class="benefit-icon mb-3">
-              <i class="{{ benefit.icon }} fs-1 text-primary"></i>
+              <i [class]="benefit.icon + ' fs-1 text-primary'"></i>
             </div>
             <h4 class="h5 mb-3">{{ benefit.title }}</h4>
             <p class="text-muted">{{ benefit.description }}</p>
@@ -100,8 +110,7 @@
   </div>
 </section>
 
-<!-- Technologies Section -->
-<section class="section">
+<section class="section reveal-section" data-reveal-id="tech" [class.is-visible]="isVisible('tech')">
   <div class="container">
     <div class="section-title">
       <h2>Technologies We Work With</h2>
@@ -109,8 +118,8 @@
     </div>
 
     <div class="row g-4 align-items-center justify-content-center">
-      @for (tech of technologies; track tech) {
-        <div class="col-lg-2 col-md-3 col-4">
+      @for (tech of technologies; track tech; let i = $index) {
+        <div class="col-lg-2 col-md-3 col-4" [style.--stagger]="i">
           <div class="tech-card text-center p-3">
             <span class="fw-semibold text-muted">{{ tech }}</span>
           </div>
@@ -120,8 +129,7 @@
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta-section bg-gradient text-white text-center">
+<section class="cta-section text-white text-center reveal-section" data-reveal-id="cta" [class.is-visible]="isVisible('cta')">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-8">
@@ -130,7 +138,7 @@
           Get in touch with our experts today and discover how we can help your business leverage
           technology for growth and success.
         </p>
-        <a routerLink="/contact" class="btn btn-light btn-lg px-5">
+        <a routerLink="/contact" class="btn btn-light btn-lg px-5 cta-button">
           Contact Us Today
           <i class="bi bi-arrow-right ms-2"></i>
         </a>

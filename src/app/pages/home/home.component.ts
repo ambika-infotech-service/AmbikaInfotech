@@ -1,4 +1,13 @@
-import { Component, ChangeDetectionStrategy, OnInit, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  DestroyRef,
+  ElementRef,
+  OnInit,
+  inject,
+  signal,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../services/seo.service';
 
@@ -9,8 +18,12 @@ import { SeoService } from '../../services/seo.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   private readonly seo = inject(SeoService);
+  private readonly elementRef = inject(ElementRef<HTMLElement>);
+  private readonly destroyRef = inject(DestroyRef);
+
+  readonly visibleSections = signal<Set<string>>(new Set(['hero']));
 
   ngOnInit(): void {
     this.seo.update({
@@ -148,4 +161,49 @@ export class HomeComponent implements OnInit {
     'Linux',
     'Windows Server'
   ];
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          const sectionId = entry.target.getAttribute('data-reveal-id');
+          if (!sectionId || !entry.isIntersecting) {
+            continue;
+          }
+
+          this.visibleSections.update(previous => {
+            if (previous.has(sectionId)) {
+              return previous;
+            }
+
+            const next = new Set(previous);
+            next.add(sectionId);
+            return next;
+          });
+
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        threshold: 0.2,
+        rootMargin: '0px 0px -10% 0px',
+      }
+    );
+
+    const targets = this.elementRef.nativeElement.querySelectorAll(
+      '[data-reveal-id]'
+    ) as NodeListOf<HTMLElement>;
+    for (const target of targets) {
+      observer.observe(target);
+    }
+
+    this.destroyRef.onDestroy(() => {
+      observer.disconnect();
+    });
+  }
+
+  isVisible(sectionId: string): boolean {
+    return this.visibleSections().has(sectionId);
+  }
 }
